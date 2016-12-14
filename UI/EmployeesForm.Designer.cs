@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.grpDetails = new System.Windows.Forms.GroupBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.dateDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.lblSalary = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lblDateOfBirth = new System.Windows.Forms.Label();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.txtPosition = new System.Windows.Forms.TextBox();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.btnReport = new System.Windows.Forms.Button();
             this.listEmployees = new System.Windows.Forms.ListView();
             this.txtPositionFilter = new System.Windows.Forms.TextBox();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.lblDateOfBirth = new System.Windows.Forms.Label();
-            this.lblSalary = new System.Windows.Forms.Label();
-            this.txtSalary = new System.Windows.Forms.TextBox();
-            this.dateDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.lblPositionFilter = new System.Windows.Forms.Label();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.grpDetails.SuspendLayout();
@@ -73,28 +73,32 @@
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "Регистрация сотрудника";
             // 
-            // txtFirstName
+            // dateDateOfBirth
             // 
-            this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dateDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtFirstName.Location = new System.Drawing.Point(9, 58);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(265, 22);
-            this.txtFirstName.TabIndex = 0;
+            this.dateDateOfBirth.Location = new System.Drawing.Point(9, 268);
+            this.dateDateOfBirth.Name = "dateDateOfBirth";
+            this.dateDateOfBirth.Size = new System.Drawing.Size(265, 22);
+            this.dateDateOfBirth.TabIndex = 3;
             // 
-            // btnInsert
+            // txtSalary
             // 
-            this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnInsert.Location = new System.Drawing.Point(164, 398);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(110, 32);
-            this.btnInsert.TabIndex = 1;
-            this.btnInsert.Text = "Сохранить";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.txtSalary.Location = new System.Drawing.Point(9, 348);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(265, 22);
+            this.txtSalary.TabIndex = 4;
+            // 
+            // lblSalary
+            // 
+            this.lblSalary.AutoSize = true;
+            this.lblSalary.Location = new System.Drawing.Point(9, 310);
+            this.lblSalary.Name = "lblSalary";
+            this.lblSalary.Size = new System.Drawing.Size(132, 16);
+            this.lblSalary.TabIndex = 13;
+            this.lblSalary.Text = "Заработная плата:";
             // 
             // btnDelete
             // 
@@ -105,9 +109,92 @@
             this.btnDelete.Location = new System.Drawing.Point(9, 398);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(110, 32);
-            this.btnDelete.TabIndex = 2;
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // lblDateOfBirth
+            // 
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Location = new System.Drawing.Point(9, 240);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(110, 16);
+            this.lblDateOfBirth.TabIndex = 11;
+            this.lblDateOfBirth.Text = "Дата рождения:";
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnInsert.Location = new System.Drawing.Point(164, 398);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(110, 32);
+            this.btnInsert.TabIndex = 5;
+            this.btnInsert.Text = "Сохранить";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtPosition.Location = new System.Drawing.Point(9, 198);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(265, 22);
+            this.txtPosition.TabIndex = 2;
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPosition.Location = new System.Drawing.Point(9, 170);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(82, 16);
+            this.lblPosition.TabIndex = 9;
+            this.lblPosition.Text = "Должность:";
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtLastName.Location = new System.Drawing.Point(9, 128);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(265, 22);
+            this.txtLastName.TabIndex = 1;
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblLastName.Location = new System.Drawing.Point(9, 100);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(70, 16);
+            this.lblLastName.TabIndex = 7;
+            this.lblLastName.Text = "Фамилия:";
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFirstName.Location = new System.Drawing.Point(6, 30);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(37, 16);
+            this.lblFirstName.TabIndex = 6;
+            this.lblFirstName.Text = "Имя:";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtFirstName.Location = new System.Drawing.Point(9, 58);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(265, 22);
+            this.txtFirstName.TabIndex = 0;
             // 
             // btnReport
             // 
@@ -116,7 +203,8 @@
             this.btnReport.Location = new System.Drawing.Point(530, 480);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(280, 32);
-            this.btnReport.TabIndex = 3;
+            this.btnReport.TabIndex = 7;
+            this.btnReport.TabStop = false;
             this.btnReport.Text = "Отчет";
             this.btnReport.UseVisualStyleBackColor = true;
             // 
@@ -129,6 +217,7 @@
             this.listEmployees.Name = "listEmployees";
             this.listEmployees.Size = new System.Drawing.Size(500, 400);
             this.listEmployees.TabIndex = 4;
+            this.listEmployees.TabStop = false;
             this.listEmployees.UseCompatibleStateImageBehavior = false;
             this.listEmployees.View = System.Windows.Forms.View.Details;
             // 
@@ -138,94 +227,8 @@
             this.txtPositionFilter.Location = new System.Drawing.Point(115, 31);
             this.txtPositionFilter.Name = "txtPositionFilter";
             this.txtPositionFilter.Size = new System.Drawing.Size(182, 22);
-            this.txtPositionFilter.TabIndex = 5;
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFirstName.Location = new System.Drawing.Point(6, 30);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(37, 16);
-            this.lblFirstName.TabIndex = 6;
-            this.lblFirstName.Text = "Имя:";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLastName.Location = new System.Drawing.Point(9, 100);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(70, 16);
-            this.lblLastName.TabIndex = 7;
-            this.lblLastName.Text = "Фамилия:";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtLastName.Location = new System.Drawing.Point(9, 128);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(265, 22);
-            this.txtLastName.TabIndex = 8;
-            // 
-            // lblPosition
-            // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPosition.Location = new System.Drawing.Point(9, 170);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(82, 16);
-            this.lblPosition.TabIndex = 9;
-            this.lblPosition.Text = "Должность:";
-            // 
-            // txtPosition
-            // 
-            this.txtPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtPosition.Location = new System.Drawing.Point(9, 198);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(265, 22);
-            this.txtPosition.TabIndex = 10;
-            this.txtPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblDateOfBirth
-            // 
-            this.lblDateOfBirth.AutoSize = true;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(9, 240);
-            this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(110, 16);
-            this.lblDateOfBirth.TabIndex = 11;
-            this.lblDateOfBirth.Text = "Дата рождения:";
-            // 
-            // lblSalary
-            // 
-            this.lblSalary.AutoSize = true;
-            this.lblSalary.Location = new System.Drawing.Point(9, 310);
-            this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(132, 16);
-            this.lblSalary.TabIndex = 13;
-            this.lblSalary.Text = "Заработная плата:";
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSalary.Location = new System.Drawing.Point(9, 348);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(265, 22);
-            this.txtSalary.TabIndex = 14;
-            // 
-            // dateDateOfBirth
-            // 
-            this.dateDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateDateOfBirth.Location = new System.Drawing.Point(9, 268);
-            this.dateDateOfBirth.Name = "dateDateOfBirth";
-            this.dateDateOfBirth.Size = new System.Drawing.Size(265, 22);
-            this.dateDateOfBirth.TabIndex = 15;
+            this.txtPositionFilter.TabIndex = 8;
+            this.txtPositionFilter.TabStop = false;
             // 
             // lblPositionFilter
             // 
