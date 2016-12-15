@@ -18,6 +18,7 @@ namespace UI
 {
     public partial class EmployeesForm : Form, IEmployeesView
     {
+        private DataTable dataTable;
         private EmployeesPresenter presenter;
 
         public EmployeesForm()
@@ -30,10 +31,29 @@ namespace UI
         public void SetEmployees(IEnumerable<Employee> employee)
         {
             ClearGrid();
-            foreach (var emp in employee)
-            {
-                AddEmployeeToGrid(emp);
-            }   
+            dataTable = new DataTable();
+            dataTable.Columns.Add("Id");
+            dataTable.Columns.Add("FirstName");
+            dataTable.Columns.Add("LastName");
+            dataTable.Columns.Add("DateOfBirth");
+            dataTable.Columns.Add("Position");
+            dataTable.Columns.Add("Salary");
+
+            foreach (var empl in employee)
+                AddEmployeeToDataTable(empl);
+        }
+
+        public void AddEmployeeToDataTable(Employee employee)
+        {
+            DataRow row = dataTable.NewRow();
+            row["Id"] = employee.EmployeeID.ToString();
+            row["FirstName"] = employee.FirstName;
+            row["LastName"] = employee.LastName;
+            row["DateOfBirth"] = employee.DateOfBirth.ToShortDateString();
+            row["Position"] = employee.Position;
+            row["Salary"] = employee.Salary.ToString("f");
+            dataTable.Rows.Add(row);
+            AddEmployeeToGrid(row);
         }
 
         public void ClearGrid()
@@ -45,18 +65,17 @@ namespace UI
             listEmployees.Columns.Add("Дата рождения", 100, HorizontalAlignment.Left);
             listEmployees.Columns.Add("Должность", 100, HorizontalAlignment.Left);
             listEmployees.Columns.Add("Зарплата", 100, HorizontalAlignment.Right);
-            listEmployees.Items.Clear();
         }
 
-        public void AddEmployeeToGrid(Employee empl)
+        public void AddEmployeeToGrid(DataRow row)
         {
-            ListViewItem parent;
-            parent = listEmployees.Items.Add(empl.EmployeeID.ToString());
-            parent.SubItems.Add(empl.FirstName);
-            parent.SubItems.Add(empl.LastName);
-            parent.SubItems.Add(empl.DateOfBirth.ToShortDateString());
-            parent.SubItems.Add(empl.Position);
-            parent.SubItems.Add(empl.Salary.ToString("f"));
+            ListViewItem item = new ListViewItem(row["Id"].ToString());
+            item.SubItems.Add(row["FirstName"].ToString());
+            item.SubItems.Add(row["LastName"].ToString());
+            item.SubItems.Add(row["DateOfBirth"].ToString());
+            item.SubItems.Add(row["Position"].ToString());
+            item.SubItems.Add(row["Salary"].ToString());
+            listEmployees.Items.Add(item);
         }
 
         public List<ValidationResult> InsertEmployee(Employee empl)
@@ -66,9 +85,13 @@ namespace UI
 
         public void DeleteEmployeeFromGrid(Employee empl)
         {
-            foreach (ListViewItem row in this.listEmployees.Items)
+            foreach (ListViewItem row in listEmployees.Items)
                 if (row.Text == empl.EmployeeID.ToString())
                     row.Remove();
+
+            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+                if (dataTable.Rows[i]["Id"].ToString() == empl.EmployeeID.ToString())
+                    dataTable.Rows[i].Delete();
         }
 
         public void DeleteEmployeeFromGrid(int id)
@@ -76,6 +99,10 @@ namespace UI
             foreach (ListViewItem row in this.listEmployees.Items)
                 if (row.Text == id.ToString())
                     row.Remove();
+
+            for (int i = dataTable.Rows.Count - 1; i >= 0; i--)
+                if (dataTable.Rows[i]["Id"].ToString() == id.ToString())
+                    dataTable.Rows[i].Delete();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -89,6 +116,14 @@ namespace UI
         {
             if (listEmployees.SelectedItems.Count > 0)
                 presenter.Delete(int.Parse(listEmployees.SelectedItems[0].Text));
+        }
+
+        private void txtPositionFilter_TextChanged(object sender, EventArgs e)
+        {
+            listEmployees.Items.Clear();
+            foreach (DataRow row in dataTable.Rows)
+                if (row["Position"].ToString().StartsWith(txtPositionFilter.Text))
+                    AddEmployeeToGrid(row);
         }
     }
 }

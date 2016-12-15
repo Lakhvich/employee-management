@@ -11,7 +11,7 @@ namespace Presentation.Views
     public interface IEmployeesView
     {
         void SetEmployees(IEnumerable<Employee> employee);
-        void AddEmployeeToGrid(Employee employee);
+        void AddEmployeeToDataTable(Employee employee);
         void DeleteEmployeeFromGrid(int id);
         void DeleteEmployeeFromGrid(Employee employee);
     }

@@ -71,6 +71,7 @@
             this.txtPositionFilter.Name = "txtPositionFilter";
             this.txtPositionFilter.Size = new System.Drawing.Size(200, 22);
             this.txtPositionFilter.TabIndex = 1;
+            this.txtPositionFilter.TextChanged += new System.EventHandler(this.txtPositionFilter_TextChanged);
             // 
             // lblPositionFilter
             // 

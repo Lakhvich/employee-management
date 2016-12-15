@@ -33,7 +33,7 @@ namespace Presentation.Presenters
             if (Validator.TryValidateObject(empl, new ValidationContext(empl, null, null), stateError, true))
             {
                 model.Create(empl);
-                view.AddEmployeeToGrid(empl);
+                view.AddEmployeeToDataTable(empl);
             }
             return stateError;
         }
