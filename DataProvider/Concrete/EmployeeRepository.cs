@@ -35,8 +35,8 @@ namespace DataProvider.Concrete
 
             if (emp != null)
             {
-                emp.FName = employee.FName;
-                emp.LName = employee.LName;
+                emp.FirstName = employee.FirstName;
+                emp.LastName = employee.LastName;
                 emp.Position = employee.Position;
                 emp.Salary = employee.Salary;
                 emp.DateOfBirth = employee.DateOfBirth;

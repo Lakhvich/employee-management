@@ -12,6 +12,7 @@ using DataProvider.Entities;
 using Presentation.Presenters;
 using DataProvider.Concrete;
 using DataProvider.Abstract;
+using System.ComponentModel.DataAnnotations;
 
 namespace UI
 {
@@ -38,12 +39,12 @@ namespace UI
         public void ClearGrid()
         {
             listEmployees.Columns.Clear();
-            listEmployees.Columns.Add("Id", 25, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Имя", 80, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Фамилия", 80, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Id", 30, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Имя", 100, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Фамилия", 100, HorizontalAlignment.Left);
             listEmployees.Columns.Add("Дата рождения", 100, HorizontalAlignment.Left);
             listEmployees.Columns.Add("Должность", 100, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Зарплата", 75, HorizontalAlignment.Right);
+            listEmployees.Columns.Add("Зарплата", 100, HorizontalAlignment.Right);
             listEmployees.Items.Clear();
         }
 
@@ -51,11 +52,23 @@ namespace UI
         {
             ListViewItem parent;
             parent = listEmployees.Items.Add(emp.EmployeeID.ToString());
-            parent.SubItems.Add(emp.FName);
-            parent.SubItems.Add(emp.LName);
+            parent.SubItems.Add(emp.FirstName);
+            parent.SubItems.Add(emp.LastName);
             parent.SubItems.Add(emp.DateOfBirth.ToShortDateString());
             parent.SubItems.Add(emp.Position);
-            parent.SubItems.Add(emp.Salary.ToString());
+            parent.SubItems.Add(emp.Salary.ToString("f"));
+        }
+
+        public List<ValidationResult> InsertEmployee(Employee emp)
+        {
+            return presenter.Create(emp);
+        }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            AddEmployeeForm form = new AddEmployeeForm();
+            form.Owner = this;
+            form.ShowDialog();
         }
     }
 }
