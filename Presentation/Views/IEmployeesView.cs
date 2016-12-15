@@ -12,5 +12,7 @@ namespace Presentation.Views
     {
         void SetEmployees(IEnumerable<Employee> employee);
         void AddEmployeeToGrid(Employee employee);
+        void DeleteEmployeeFromGrid(int id);
+        void DeleteEmployeeFromGrid(Employee employee);
     }
 }

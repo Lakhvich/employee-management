@@ -37,5 +37,17 @@ namespace Presentation.Presenters
             }
             return stateError;
         }
+
+        public void Delete(int id)
+        {
+            Employee empl = model.Get(id);
+            if (empl == null)
+            {
+                view.DeleteEmployeeFromGrid(id);
+                return;
+            }
+            model.Delete(empl);
+            view.DeleteEmployeeFromGrid(empl);
+        }
     }
 }

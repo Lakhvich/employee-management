@@ -48,20 +48,34 @@ namespace UI
             listEmployees.Items.Clear();
         }
 
-        public void AddEmployeeToGrid(Employee emp)
+        public void AddEmployeeToGrid(Employee empl)
         {
             ListViewItem parent;
-            parent = listEmployees.Items.Add(emp.EmployeeID.ToString());
-            parent.SubItems.Add(emp.FirstName);
-            parent.SubItems.Add(emp.LastName);
-            parent.SubItems.Add(emp.DateOfBirth.ToShortDateString());
-            parent.SubItems.Add(emp.Position);
-            parent.SubItems.Add(emp.Salary.ToString("f"));
+            parent = listEmployees.Items.Add(empl.EmployeeID.ToString());
+            parent.SubItems.Add(empl.FirstName);
+            parent.SubItems.Add(empl.LastName);
+            parent.SubItems.Add(empl.DateOfBirth.ToShortDateString());
+            parent.SubItems.Add(empl.Position);
+            parent.SubItems.Add(empl.Salary.ToString("f"));
         }
 
-        public List<ValidationResult> InsertEmployee(Employee emp)
+        public List<ValidationResult> InsertEmployee(Employee empl)
         {
-            return presenter.Create(emp);
+            return presenter.Create(empl);
+        }
+
+        public void DeleteEmployeeFromGrid(Employee empl)
+        {
+            foreach (ListViewItem row in this.listEmployees.Items)
+                if (row.Text == empl.EmployeeID.ToString())
+                    row.Remove();
+        }
+
+        public void DeleteEmployeeFromGrid(int id)
+        {
+            foreach (ListViewItem row in this.listEmployees.Items)
+                if (row.Text == id.ToString())
+                    row.Remove();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -69,6 +83,12 @@ namespace UI
             AddEmployeeForm form = new AddEmployeeForm();
             form.Owner = this;
             form.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (listEmployees.SelectedItems.Count > 0)
+                presenter.Delete(int.Parse(listEmployees.SelectedItems[0].Text));
         }
     }
 }
