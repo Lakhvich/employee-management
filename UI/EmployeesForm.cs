@@ -59,11 +59,11 @@ namespace UI
         public void ClearGrid()
         {
             listEmployees.Columns.Clear();
-            listEmployees.Columns.Add("Id", 30, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Имя", 100, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Фамилия", 100, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Дата рождения", 100, HorizontalAlignment.Left);
-            listEmployees.Columns.Add("Должность", 100, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Id", 40, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Имя", 120, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Фамилия", 120, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Дата рождения", 120, HorizontalAlignment.Left);
+            listEmployees.Columns.Add("Должность", 180, HorizontalAlignment.Left);
             listEmployees.Columns.Add("Зарплата", 100, HorizontalAlignment.Right);
         }
 
@@ -122,8 +122,14 @@ namespace UI
         {
             listEmployees.Items.Clear();
             foreach (DataRow row in dataTable.Rows)
-                if (row["Position"].ToString().StartsWith(txtPositionFilter.Text))
+                if (row["Position"].ToString().ToUpper().StartsWith(txtPositionFilter.Text.ToUpper()))
                     AddEmployeeToGrid(row);
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Report form = new Report();
+            form.Show();
         }
     }
 }

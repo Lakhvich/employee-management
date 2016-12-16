@@ -50,6 +50,7 @@
             this.btnReport.TabIndex = 3;
             this.btnReport.Text = "Отчет";
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // listEmployees
             // 

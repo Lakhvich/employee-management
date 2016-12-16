@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\EmployeesPresenter.cs" />
+    <Compile Include="Presenters\ReportsPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IEmployeesView.cs" />
+    <Compile Include="Views\IReportsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataProvider\DataProvider.csproj">
